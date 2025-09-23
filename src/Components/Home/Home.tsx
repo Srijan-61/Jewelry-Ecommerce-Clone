@@ -1,8 +1,30 @@
+import { useEffect } from "react";
 import { ProductSection } from "./productSectiom";
 import pendent from "./../../assets/pendent1.png";
 import modelpic from "../../assets/88aac0_140457e419f440e9b314d1ae825a0840~mv2.png";
 
 function Home() {
+  useEffect(() => {
+    const img = document.getElementById("zoomImage");
+    if (!img) return;
+
+    const handleScroll = () => {
+      // Run only on mobile (<768px)
+      if (window.innerWidth >= 768) {
+        img.style.transform = "scale(1)"; // reset for desktop
+        return;
+      }
+
+      const scrollY = window.scrollY;
+      let scale = 1.3 - scrollY / 1000; // Starts at 1.3 → shrinks to 1
+      if (scale < 1) scale = 1;
+      img.style.transform = `scale(${scale})`;
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <div className="bg-gray-200 ">
       <div className="bg-primary overflow-hidden">
@@ -31,18 +53,21 @@ function Home() {
               />
             </div>
           </div>
-          {/* Right Column (model image) */}
-          <div className="flex-1 md:h-[80vh]">
+
+          {/* Right Column (Model Image with scroll zoom on mobile only) */}
+          <div className="flex-1 md:h-[80vh] overflow-hidden">
             <img
               src={modelpic}
               alt="Model"
-              className="h-full w-full object-cover"
+              id="zoomImage"
+              className="h-full w-full object-cover transition-transform duration-300"
+              style={{ transform: "scale(1.3)" }} // initial zoom for mobile
             />
           </div>
         </div>
 
         {/* Products Section */}
-        <ProductSection></ProductSection>
+        <ProductSection />
 
         {/* Exclusive Collection Section */}
         <section className="flex flex-col md:flex-row gap-6 md:gap-10 h-auto md:h-[70vh] px-6 md:px-16 py-10">
