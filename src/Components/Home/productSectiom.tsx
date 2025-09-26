@@ -6,7 +6,6 @@ import "slick-carousel/slick/slick-theme.css";
 import { MdNavigateNext } from "react-icons/md";
 import { GrPrevious } from "react-icons/gr";
 
-
 export const ProductSection = () => {
   interface ArrowProps {
     onClick?: () => void;
@@ -51,16 +50,16 @@ export const ProductSection = () => {
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
-        }
+        },
       },
       {
         breakpoint: 640,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-        }
-      }
-    ]
+        },
+      },
+    ],
   };
 
   return (
@@ -101,6 +100,3 @@ export const ProductSection = () => {
     </section>
   );
 };
-
-
-
