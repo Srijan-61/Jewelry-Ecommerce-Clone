@@ -3,7 +3,7 @@ import { Parallax, ParallaxProvider } from "react-scroll-parallax";
 function OurStory() {
   return (
     <ParallaxProvider>
-      <section className="flex flex-col md:flex-row h-auto md:h-[120vh] bg-[rgba(178,191,194,1)] mt-10 px-6 md:px-16 py-10 gap-6 md:gap-10 ">
+      <section className="flex flex-col md:flex-row h-auto md:h-[120vh] bg-primary mt-10 px-6 md:px-16 py-10 gap-6 md:gap-10 ">
         <div className="flex-1 flex flex-col justify-between space-y-4 md:space-y-8">
           <div className="space-y-8">
             <h2 className="text-responsive-2xl font-display font-medium text-center md:text-left">

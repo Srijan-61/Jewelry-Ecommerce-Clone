@@ -1,6 +1,20 @@
+
 import { ParallaxProvider, Parallax } from "react-scroll-parallax";
-import { motion } from "framer-motion";
 import modelpic from "../../assets/88aac0_140457e419f440e9b314d1ae825a0840~mv2.png";
+import { Reveal } from "react-awesome-reveal";
+import { keyframes } from "@emotion/react"; 
+
+// Define custom bottom-to-top reveal animation
+const revealFromBottom = keyframes`
+  0% {
+    clip-path: inset(100% 0 0 0);
+    opacity: 0;
+  }
+  100% {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+  }
+`;
 
 function HeroSection() {
   return (
@@ -9,25 +23,30 @@ function HeroSection() {
         <div className="flex flex-col lg:flex-row justify-around lg:space-x-16 overflow-x-hidden">
           {/* Left Column */}
           <div className="flex-1 flex flex-col justify-between z-10 relative">
-            <motion.div
-              className="space-y-6"
-              initial={{ opacity: 0, y: 50 }} // start hidden and slightly down
-              whileInView={{ opacity: 1, y: 0 }} // animate into view
-              viewport={{ once: true, amount: 1 }} // trigger when 1% visible
-              transition={{ duration: 0.8, ease: "easeOut" }}
-            >
-              <h1 className="text-responsive-3xl font-display font-light">
-                UNIQUE EXPRESSIONS
-              </h1>
-              <p className="text-responsive-lg font-body">
-                Discover Your Style Statement
-              </p>
-              <a href="/shopall">
-                <button className="bg-black text-white px-6 py-3 border border-black transition duration-300 hover:bg-transparent hover:text-black text-responsive font-body font-medium">
-                  Shop Now
-                </button>
-              </a>
-            </motion.div>
+            <div className="space-y-6 flex flex-col">
+              {/* Custom reveal animation applied here */}
+              <Reveal
+                keyframes={revealFromBottom}
+                duration={1200}
+                triggerOnce
+                cascade
+                damping={0.25}
+              >
+                <h1 className="text-responsive-3xl font-display font-light">
+                  UNIQUE EXPRESSIONS
+                </h1>
+
+                <p className="text-responsive-lg font-body">
+                  Discover Your Style Statement
+                </p>
+
+                <a href="/shopall">
+                  <button className="bg-black text-white px-6 py-3 border border-black transition duration-300 hover:bg-transparent hover:text-black text-responsive font-body font-medium">
+                    Shop Now
+                  </button>
+                </a>
+              </Reveal>
+            </div>
 
             <div className="mt-8">
               <img
@@ -40,10 +59,10 @@ function HeroSection() {
 
           {/* Right Column */}
           <div className="flex-1 overflow-hidden">
-            {/* Mobile (static) */}
+            {/* Mobile (static image) */}
             <img src={modelpic} alt="modelpic" className="lg:hidden h-auto" />
 
-            {/* Desktop (Parallax) */}
+            {/* Desktop (Parallax background) */}
             <div className="hidden lg:block h-full w-full">
               <Parallax speed={-40}>
                 <div

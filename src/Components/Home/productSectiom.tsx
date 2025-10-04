@@ -63,7 +63,7 @@ export const ProductSection = () => {
   };
 
   return (
-    <section className="px-5 sm:px-10 lg:px-20 py-20">
+    <section className="px-5 sm:px-10 lg:px-20 py-20 bg-secondary">
       <h2 className="text-responsive-2xl font-display font-medium mb-10 text-black">
         Featured Products
       </h2>
