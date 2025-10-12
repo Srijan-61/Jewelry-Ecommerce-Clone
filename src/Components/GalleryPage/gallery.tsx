@@ -2,7 +2,7 @@ import galleryImages from "./galleryImages";
 
 const Gallery = () => {
   return (
-    <div className="min-h-screen bg-primary p-8 font-sans">
+    <div className="min-h-screen bg-primary p-8 font-sans mt-12">
       <h1 className="text-4xl font-light tracking-widest text-[#5C5C5C] mb-8">
         GALLERY
       </h1>
