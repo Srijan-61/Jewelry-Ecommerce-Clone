@@ -35,7 +35,7 @@ export const Nav = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
 
-  const handleContactClick = (e) => {
+  const handleContactClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     navigate("/home");
     setTimeout(() => {
@@ -60,10 +60,16 @@ export const Nav = () => {
 
           {/* Desktop Nav */}
           <div className="hidden md:flex space-x-12">
-            <Link to="/shopall" className="text-black hover:text-gray-600 font-bold">
+            <Link
+              to="/shopall"
+              className="text-black hover:text-gray-600 font-bold"
+            >
               Shop All
             </Link>
-            <Link to="/gallery" className="text-black hover:text-gray-600 font-bold">
+            <Link
+              to="/gallery"
+              className="text-black hover:text-gray-600 font-bold"
+            >
               Gallery
             </Link>
             <a
@@ -77,16 +83,25 @@ export const Nav = () => {
 
           {/* Right Side (Desktop) */}
           <div className="hidden md:flex space-x-6">
-            <Link to="/login" className="text-black hover:text-gray-600 font-bold">
+            <Link
+              to="/login"
+              className="text-black hover:text-gray-600 font-bold"
+            >
               Log In
             </Link>
-            <Link to="/cart" className="text-black hover:text-gray-600 font-bold">
-              Cart (0)
+            <Link
+              to="/cart"
+              className="text-black hover:text-gray-600 font-bold"
+            >
+              Cart
             </Link>
           </div>
 
           {/* Mobile Hamburger */}
-          <button className="md:hidden p-2 z-50" onClick={() => setIsOpen(!isOpen)}>
+          <button
+            className="md:hidden p-2 z-50"
+            onClick={() => setIsOpen(!isOpen)}
+          >
             {isOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
         </nav>
@@ -94,10 +109,18 @@ export const Nav = () => {
         {/* Mobile Full-Screen Overlay */}
         {isOpen && (
           <div className="fixed inset-0 bg-gray-300 flex flex-col items-center justify-center space-y-8 text-2xl z-40 transition-all duration-500 ease-in-out">
-            <Link to="/shopall" className="font-light hover:text-gray-600" onClick={() => setIsOpen(false)}>
+            <Link
+              to="/shopall"
+              className="font-light hover:text-gray-600"
+              onClick={() => setIsOpen(false)}
+            >
               Shop All
             </Link>
-            <Link to="/gallery" className="font-light hover:text-gray-600" onClick={() => setIsOpen(false)}>
+            <Link
+              to="/gallery"
+              className="font-light hover:text-gray-600"
+              onClick={() => setIsOpen(false)}
+            >
               Gallery
             </Link>
             <a
@@ -107,10 +130,18 @@ export const Nav = () => {
             >
               Contact
             </a>
-            <Link to="/login" className="font-light hover:text-gray-600" onClick={() => setIsOpen(false)}>
+            <Link
+              to="/login"
+              className="font-light hover:text-gray-600"
+              onClick={() => setIsOpen(false)}
+            >
               Log In
             </Link>
-            <Link to="/cart" className="font-light hover:text-gray-600" onClick={() => setIsOpen(false)}>
+            <Link
+              to="/cart"
+              className="font-light hover:text-gray-600"
+              onClick={() => setIsOpen(false)}
+            >
               Cart (0)
             </Link>
           </div>

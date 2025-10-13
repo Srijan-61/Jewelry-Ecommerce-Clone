@@ -1,8 +1,7 @@
-
 import { ParallaxProvider, Parallax } from "react-scroll-parallax";
 import modelpic from "../../assets/88aac0_140457e419f440e9b314d1ae825a0840~mv2.png";
 import { Reveal } from "react-awesome-reveal";
-import { keyframes } from "@emotion/react"; 
+import { keyframes } from "@emotion/react";
 
 // Define custom bottom-to-top reveal animation
 const revealFromBottom = keyframes`
@@ -19,7 +18,7 @@ const revealFromBottom = keyframes`
 function HeroSection() {
   return (
     <ParallaxProvider>
-      <div className="mt-50 lg:mt-50 lg:mx-20">
+      <div className="mt-50 lg:mt-50 lg:mx-20 mx-5">
         <div className="flex flex-col lg:flex-row justify-around lg:space-x-16 overflow-x-hidden">
           {/* Left Column */}
           <div className="flex-1 flex flex-col justify-between z-10 relative">
@@ -32,10 +31,11 @@ function HeroSection() {
                 cascade
                 damping={0.25}
               >
-                <h1 className="text-responsive-3xl font-display font-light">
-                  UNIQUE EXPRESSIONS
+                <h1 className="text-responsive-3xl font-display font-light ">
+                  UNIQUE
+                  <br />
+                  EXPRESSIONS
                 </h1>
-
                 <p className="text-responsive-lg font-body">
                   Discover Your Style Statement
                 </p>

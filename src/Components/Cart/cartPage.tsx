@@ -16,7 +16,7 @@ function CartPage() {
 
   return (
     <div className="bg-primary w-full min-h-screen">
-      <div className="max-w-[2018px] mx-auto px-6 md:px-16 py-10 h-full">
+      <div className="max-w-[2018px] mx-auto px-6 md:px-16 py-10 h-full mt-15">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-16 items-center  h-full">
           {/* Cart Items Section */}
           <div className="lg:col-span-2">
